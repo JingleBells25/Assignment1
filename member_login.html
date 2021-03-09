@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial scale = 1.0">
+        <title>Gym Management System</title>
+        <link rel="stylesheet" href="css/member_login.css" type="text/css">
+         <script src="scripts/scripts.js" type="text/javascript"></script>
+        <script src="scripts/vrlms_load_data.js" type="text/javascripts"></script>
+        
+    </head>
+    <body onload="loadData()">
+    <main id="mainfield">
+
+                      <!-- Hamburger Menu-->
+                        <div class="col-1">
+                                <div class="nav"> 
+                                    <label class="dropdown-label">&#9776;</label>
+                                    <div class = "menu-items">
+                                        <h5>View Schedule</h5>   
+                                    </div>
+                              </div>
+                       </div>
+                        <!-- Grid VIEW-->    
+        <header>
+                <div class="row">
+                    <div>
+                        <img src="logo.png" alt="">
+                    </div>
+
+                            <!-- Console Title-->
+                    <div class="col-10 align-content-center title">
+                        <h2>The Fitness Universe</h2>
+                        <h4>Live your Best Life</h4>
+                    </div>
+
+                    <div class="col-8 memberlog">
+                        <h4>Member Login</h4>
+                    </div>
+
+
+                </div>    
+            </header>
+            <section>
+                <p id="first-error"></p>
+                <p id="second-error"></p>
+                <form name="loginform" onsubmit="loginMember(this, event)">
+                    <div class="row">
+                        <div class="col-2 membership">
+                            <label>Membership #</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="memberUsername" type="text" name="username" placeholder="user name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 pwd">
+                            <label>Password</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="memberPassword" type="password" name="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 align-content-center login">
+                            <button id="submitButton" type="submit" name="signIn" value="Sign In">Log In</button> 
+                        </div>    
+                        <div class="recover">   
+                        <a href="#">Recover Password</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>    
+ </body>
+</html>

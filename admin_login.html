@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial scale = 1.0">
+        <title>Gym Management System</title>
+        <link rel="stylesheet" href="css/trainer_login.css" type="text/css">
+        <script src="scripts/scripts.js" type="text/javascript"></script>
+        <script src="scripts/vrlms_load_data.js" type="text/javascripts"></script>
+    </head>
+    <body>
+    <main id="mainfield">
+
+                      <!-- Hamburger Menu-->
+                        <div class="col-1">
+                                <div class="nav"> 
+                                    <label class="dropdown-label">&#9776;</label>
+                                    <div class = "menu-items">
+                                        <h5>Change Location</h5>
+                                        <h5>View Schedule</h5>   
+                                    </div>
+                              </div>
+                       </div>
+                        <!-- Grid VIEW-->    
+        <header>
+                <div class="row">
+                    <div>
+                        <img src="logo.png" alt="">
+                    </div>
+
+                            <!-- Console Title-->
+                    <div class="col-10 align-content-center title">
+                        <h2>The Fitness Universe</h2>
+                        <h4>Live your Best Life</h4>
+                    </div>
+
+                    <div class="col-8 member">
+                        <h4>Gym Manager Login</h4>
+                    </div>
+
+
+                </div>    
+            </header>
+            <section>
+                <form id="loginform" action='#' method='GET' onsubmit="return checkUsr(user, 'student')">
+                    <div class="row">
+                        <div class="col-2 member">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" name="username" placeholder="user name" onblur="checkId(this.value)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 member">
+                            <label>Password</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="password" type="text" name="password" onblur="checkPassword(this.value)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 align-content-center login">
+                            <button id="submitButton" type="submit" name="signIn" value="Sign In">Log In</button>
+                            <p id="errors"></p>
+                        </div>    
+                            
+                        
+                    </div>
+                        <div class="recover">
+                            <a href="#">Recover Password</a>
+                        </div>
+                </form>
+            </section>
+        </main>    
+ </body>
+</html>

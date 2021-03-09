@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial scale = 1.0">
+        <title>Gym Management System</title>
+        <link rel="stylesheet" href="css/trainer_client.css" type="text/css">
+        <script src="scripts/scripts.js" type="text/javascript"></script>
+        <script src="scripts/vrlms_load_data.js" type="text/javascript"></script>
+    </head>
+    <body>
+    <main id="mainfield">
+        
+
+                                  <!-- Hamburger Menu-->
+                                  <div class="col-1">
+                                    <div class="nav"> 
+                                        <label class="dropdown-label">&#9776;</label>
+                                        <div class = "menu-items">
+                                            <h5>Gym Schedule</h5>
+                                            <h5>Sign Out</h5>
+
+                                        </div>
+                                  </div>
+                                 </div>
+
+
+        <!-- Grid VIEW-->
+            <header class="row">
+
+                <div>
+                    <img src="logo.png" alt="">
+                </div>      
+                <!-- Console Title-->
+                    <div class="col-10 title">
+                        <h1>The Fitness Universe</h1>    
+                        <h3>Live your Best Life</h3>
+                    </div>
+
+
+                    
+                    <div class="col-3 paulfix">
+                        <h5>Trainer: Paul Thomas</h5> 
+                    </div>
+
+                    <div class="col-10 member">
+                        <h5>Trainer ID: 91201</h5>
+                    </div>
+            </header>
+
+                         <!--Flexbox-->
+            <div class="flex-container">
+                <div class="flex-item"><a href="#">Clients</a></div>
+                <div class="flex-item"><a href="#">Training Schedule</a></div>
+                <div class="flex-item"><a href="#">Meal Plans</a></div>
+                <div class="flex-item"><a href="#">My Account</a></div>
+
+            </div>
+            
+            <section>
+                <form id="loginform" action='#' method='GET' onsubmit="return checkUsr(user, 'student')">
+                    <div class="col-9 form">
+                        <input type="text" name="username" placeholder="Enter search info" onblur="checkId(this.value)">
+                        <button id="submitButton" type="submit" name="signIn" value="Sign In">Search</button>
+                        <div class="linebreak"></div>
+                    </div>
+                    <div class="col-2 fix1">
+                        <h6>Action</h6>
+                    </div>
+
+                    <div class="col-2 fix2">
+                        <h6>Membership</h6>
+                    </div>
+
+                    <div class="col-2 fix3">
+                        <h6>First Name</h6>
+                    </div>
+
+                    <div class="col-2 fix4">
+                        <h6>Last Name</h6>
+                    </div>
+
+                    <div class="col-3 view">
+                        <a href="#">View</a>
+                        <a href="#">View</a>
+                        <a href="#">View</a>
+                        <a href="#">View</a>
+                        <a href="#">View</a>
+                    </div>
+
+                    <div class="col-3 book">
+                        <a href="#">Book</a>
+                        <a href="#">Book</a>
+                        <a href="#">Book</a>
+                        <a href="#">Book</a>
+                        <a href="#">Book</a>
+                    </div>
+
+                    <div class="col-2 medals">
+                        <h5>Bronze</h5>
+                        <h5>Bronze</h5>
+                        <h5>Gold</h5>
+                        <h5>Platinum</h5>
+                        <h5>Silver</h5>
+                    </div>
+
+                    <div class="col-2 fname">
+                        <h5>First Name</h5>
+                        <h5>First Name</h5>
+                        <h5>First Name</h5>
+                        <h5>First Name</h5>
+                        <h5>First Name</h5>
+                    </div>
+
+                    <div class="col-2 lname">
+                        <h5>Last Name</h5>
+                        <h5>Last Name</h5>
+                        <h5>Last Name</h5>
+                        <h5>Last Name</h5>
+                        <h5>Last Name</h5>
+                    </div>
+                    
+
+                 
+                </form>
+
+
+
+
+
+            </section>
+        </main>    
+ </body>
+</html>

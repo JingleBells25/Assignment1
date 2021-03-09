@@ -1,0 +1,98 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: cadetblue;
+    margin: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 100px;
+    margin-left: 30px;
+
+}
+
+#mainfield{
+    margin: auto;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1% 5% 3%;
+    background-color: crimson;
+}
+
+/*** Grid View Setup **/
+[class *= "col-"]
+{
+    float:left;
+    padding:20px;
+    width: 100%;
+
+}
+
+/* for desktop */
+
+@media only screen and (min-width:768px)
+{
+    .col-1  {width: 8.33%}
+    .col-2  {width: 16.66%}
+    .col-3  {width: 25%}
+    .col-4  {width: 33.33%}
+    .col-5  {width: 41.66%}
+    .col-6  {width: 50%}
+    .col-7  {width: 58.33%}
+    .col-8  {width: 66.66%}
+    .col-9  {width: 75%}
+    .col-10 {width: 83.33%}
+    .col-11 {width: 91.66%}
+    .col-12 {width: 100%}
+}
+
+.row::after{
+    content:" ";
+    clear: both;
+    display: block;
+}
+
+
+/*** Flexbox Setup **/
+.flex-container{
+    display: flex ;
+    margin: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: blue thick;
+    justify-content: space-evenly;
+}
+
+.flex-item{
+    background-color: cadetblue;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 85px;
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-right: 5px;
+}
+
+.flex-item:hover {
+    background-color: khaki;
+}
+
+.flex-item a {
+    text-decoration: none;
+}
+
+img{
+    width: 80px;
+    height: 86px;
+    float: right;
+
+}
+
+
+
+
