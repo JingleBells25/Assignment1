@@ -296,7 +296,7 @@ function verifyPassword(pwd)
  function loadData()
 {
    var membersArray = {
-      "9356214": {
+      "935621": {
          nationalId: "1990-11-21-3221",
          memberType: "Bronze",
          firstName: "Andrew",
@@ -304,7 +304,7 @@ function verifyPassword(pwd)
          address1: "31 ",
          address2: "Prior Park",
          parish: "St. James",
-         memberId: "9356214",
+         memberId: "935621",
          password:"andrewPryor123$"
       },
 
@@ -356,8 +356,9 @@ function verifyPassword(pwd)
       }
     }
 
-   var trainersArray = [
-      {
+   var trainersArray = {
+      
+    "marissa@fitnessu.life":{
          employeeId: "11005457TRNR",
          rank: "1",
          firstName: "Merissa",
@@ -366,7 +367,7 @@ function verifyPassword(pwd)
          password:"f1rst1Pa$$"
       },
 
-      {
+      "terold@fitnessuniverse.bb":{
          employeeId: "11000907TRNR",
          rank: "5",
          firstName: "Terold",
@@ -375,7 +376,7 @@ function verifyPassword(pwd)
          password:"s#cur3&cc3s5"
       },
 
-      {
+      "vanda@fitnessuniverse.bb":{
          employeeId: "11001478TRNR",
          firstName: "Vanda",
          rank: "3",
@@ -384,7 +385,7 @@ function verifyPassword(pwd)
          password:"*ll1*llip0ps"
       },
 
-      {
+      "paul@fitnessuniverse.com":{
          employeeId: "11000043TRNR",
          rank: "6",
          firstName: "Paul",
@@ -393,7 +394,7 @@ function verifyPassword(pwd)
          password:"J0$#plon67abX"
       },
 
-      {
+      "carissa@fitnessuniverse.com":{
          employeeId: "11001003TRNR",
          rank: "2",
          firstName: "Carissa",
@@ -401,10 +402,10 @@ function verifyPassword(pwd)
          email: "carissa@fitnessuniverse.com",
          password:"K#$C&R1ssTYou"
       }
-   ]
+    }
 
-   var managersArray = [
-      {
+   var managersArray = {
+    "yves@fitnessuniverse.com":{
          employeeId: "11003401ADMN",
          firstName: "Yves",
          lastName: "Laurent",
@@ -412,7 +413,7 @@ function verifyPassword(pwd)
          password:"mYQ*f0&lM2"
       },
 
-      {
+      "ellen@fitnessu.life":{
          employeeId: "11006059ADMN",
          firstName: "Ellen",
          lastName: "Jacinto",
@@ -420,7 +421,7 @@ function verifyPassword(pwd)
          password:"b0Rg$tg#1ML"
       },
 
-      {
+      "romaro@fitnessuniverse.bb":{
          employeeId: "11002001ADMN",
          firstName: "Romaro",
          lastName: "Mcclean",
@@ -428,7 +429,7 @@ function verifyPassword(pwd)
          password:"Sz0#Hg91KDew"
       },
 
-      {
+      "rosaline@fitnessu.life":{
          employeeId: "11000088ADMN",
          firstName: "Rosaline",
          lastName: "Belle",
@@ -436,14 +437,14 @@ function verifyPassword(pwd)
          password:"Nam3*Gi$OkLu&"
       },
 
-      {
+      "graham@fitnessuniverse.bb":{
          employeeId: "11001213ADMN",
          firstName: "Graham",
          lastName: "Abbott",
          email: "graham@fitnessuniverse.bb",
          password:"Q$Yi16Vbn"
       }
-   ]
+    }
 
    // add to localStorage 
    if (!localStorage.getItem("members")) {
@@ -468,11 +469,22 @@ function loginMember(data, event)
     event.preventDefault();
 
 
-    //var memberId = document.getElementById("memberUsername").value;
-    //var password = document.getElementById("memberPassword").value;
+    //verifyMemberNumber(data.username.value);
+    //verifyPassword(data.password.value);
 
-    verifyMemberNumber(data.username.value);
-    verifyPassword(data.password.value);
+    if (verifyMemberNumber(data.username.value) === false) {
+
+        document.getElementById('first-error').innerHTML = 'Invalid Membership ID' ;
+        return false;
+    
+    }
+
+    if (verifyPassword(data.password.value) === false) {
+
+        document.getElementById('second-error').innerHTML = 'Invalid Password' ;
+        return false;
+    
+       }
 
     var allMemberdetails = JSON.parse(localStorage.getItem('members'));
 
@@ -492,112 +504,49 @@ function loginMember(data, event)
     } else {
         console.log('Login error');
     }
-        /*if (verifyMemberNumber(memberId) === false) {
-            document.getElementById("first-error").innerHTML =  "Invalid Membership ID. Please try again";
-            return false;
-        }
-
-        if (verifyPassword(password) === false) {
-            document.getElementById("second-error").innerHTML =  "Invalid Password. Please try again";
-            return false;
-        }    
-        let result = JSON.parse(localStorage.getItem("members"));
-        
-        for (var i = 0; i < result.length; i++) {
-            if (data['username'] == result[i].memberId && data['password'] == result[i.password]){
-                pair = true;
-                sessionStorage.setItem("firstname" , result[i].firstName);
-                sessionStorage.setItem("lastname" , result[i].lastName);
-                sessionStorage.setItem("membershipNum" , result[i].memberId);
-                sessionStorage.setItem("loggedin" , "member" );
-            }
-        }
-
-        document.getElementById("first-error").innerHTML = " Invalid Login Details";
-        return false;
-    
-            /* add to localStorage 
-     if (!localStorage.getItem("members")) {
-        localStorage.setItem("members", JSON.stringify(membersArray));
-     }
-     if (!localStorage.getItem("trainers")) {
-        localStorage.setItem("trainers", JSON.stringify(trainersArray));
-     }
-     if (!localStorage.getItem("managers")) {
-        localStorage.setItem("managers", JSON.stringify(managersArray));
-     } 
-
-   
-*/
 }
 //window.onload=loginMember();
 
-function loginEmployee(data) 
+function loginEmployee(data, event) 
 {
-    data.preventDefault();
+    event.preventDefault();
 
+    //verifyEmail(data.email.value);
+    //verifyPassword(data.password.value);
 
-    //var email = document.getElementById("email").value;
-    //var password = document.getElementById("memberPassword").value;
+    if (verifyEmail(data.email.value) === false) {
 
-    verifyEmail(data.email);
-    verifyPassword(data.password);
+        document.getElementById('first-error').innerHTML = 'Invalid Email' ;
+        return false;
+    
+       }
 
-    var trainerdetails = localStorage.getItem(data.email);
+    
+       if (verifyPassword(data.username.value) === false) {
 
-    var trainerdetails = JSON.parse(localStorage.getItem(data.email));
+        document.getElementById('first-error').innerHTML = 'Invalid Password' ;
+        return false;
+    
+       }   
 
-    if (trainerdetails.password === data.password) {
+    var allTrainerdetails = JSON.parse(localStorage.getItem('trainers'));
+
+    var trainerdetails = allTrainerdetails [data.email.value];
+
+    if (trainerdetails.password === data.password.value) {
         console.log('Login success');
         var firstName = trainerdetails.firstName;
         var lastName = trainerdetails.lastName;
         const sessionDetails = {
             firstName: firstName,
             lastName: lastName,
-            email: data.email
+            email: data.email.value
         }
-        sessionStorage.setItem(data.memberId, JSON.stringify(sessionDetails));
+        sessionStorage.setItem(data.email.value, JSON.stringify(sessionDetails));
 
     } else {
         console.log('Login error');
     }
-        /*if (verifyMemberNumber(memberId) === false) {
-            document.getElementById("first-error").innerHTML =  "Invalid Membership ID. Please try again";
-            return false;
-        }
-
-        if (verifyPassword(password) === false) {
-            document.getElementById("second-error").innerHTML =  "Invalid Password. Please try again";
-            return false;
-        }    
-        let result = JSON.parse(localStorage.getItem("members"));
-        
-        for (var i = 0; i < result.length; i++) {
-            if (data['username'] == result[i].memberId && data['password'] == result[i.password]){
-                pair = true;
-                sessionStorage.setItem("firstname" , result[i].firstName);
-                sessionStorage.setItem("lastname" , result[i].lastName);
-                sessionStorage.setItem("membershipNum" , result[i].memberId);
-                sessionStorage.setItem("loggedin" , "member" );
-            }
-        }
-
-        document.getElementById("first-error").innerHTML = " Invalid Login Details";
-        return false;
-    
-            /* add to localStorage 
-     if (!localStorage.getItem("members")) {
-        localStorage.setItem("members", JSON.stringify(membersArray));
-     }
-     if (!localStorage.getItem("trainers")) {
-        localStorage.setItem("trainers", JSON.stringify(trainersArray));
-     }
-     if (!localStorage.getItem("managers")) {
-        localStorage.setItem("managers", JSON.stringify(managersArray));
-     } 
-
-   
-*/
 }
 
 
@@ -605,9 +554,9 @@ function loginEmployee(data)
 
  function findLostPassword() { 
 
-    var err = document.getElementById('first-error')
+    //var err = document.getElementById('first-error')
 
-    let valid = false;
+    verifyEmail(data.email.value);
 
     if (verifyEmail() === true){
         console.log('Valid email address');
